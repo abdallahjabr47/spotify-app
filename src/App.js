@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import './App.css';
 import { getTokenFromUrl } from './Logic/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Player from './Components/Player/Player';
-import Login from './Components/Login/Login';
-import {useDataLayerValue} from './Logic/DataLayer'
+import {useDataLayerValue} from './Logic/DataLayer';
+import { createRoutesFromElements, createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
+import { routes } from './Utils/Utils';
+import HomeLayout from './Layout/HomeLayout/HomeLayout';
 
 const spotify = new SpotifyWebApi();
 
@@ -35,16 +36,35 @@ function App() {
           user: user
         });
       });
+
+      spotify.getUserPlaylists()
+      .then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        });
+      });
     }
   }, []);
 
-  console.log("Me", user);
-  console.log("token", token);
+  //console.log("Me", user);
+  //console.log("token", token);
 
+  const pagesRoutes = createBrowserRouter(
+    createRoutesFromElements(
+      routes.map((route, idx) => {
+        return <Route element={<HomeLayout />} key={idx} errorElement={<div>Not Found</div>} >
+            <Route path={route.path} element={route.component} />
+        </Route>
+      })
+    )
+  )
 
-  return (
-    <div className="App">
-      {/* JSX, if we have a token*/}
+  return ( 
+    <Suspense fallback={<div>Loading...</div>}>
+    <RouterProvider router={pagesRoutes} />
+   {/* <div className="App">
+      
       {
         token ? (
           <Player spotify={spotify}/>
@@ -53,6 +73,8 @@ function App() {
         )
       }
     </div>
+    */}
+    </Suspense>
   );
 }
 
