@@ -12,7 +12,7 @@ export default function Home({ spotify }) {
 
   return (
     <div className='body'>
-        Home page
+      
     </div>
   )
 }

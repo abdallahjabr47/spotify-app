@@ -6,7 +6,7 @@ import { useDataLayerValue } from '../../Logic/DataLayer';
 import SidebarOption from '../SidebarOption/SidebarOption';
 import Title from "../Sidebar/Title/Title";
 
-const Sidebars = () => {
+const Sidebar = () => {
   const [{ playlists }, dispatch] = useDataLayerValue()
 
   return (
@@ -36,4 +36,4 @@ const Sidebars = () => {
   );
 };
 
-export default Sidebars;
+export default Sidebar;

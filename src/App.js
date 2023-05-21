@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, Suspense } from 'react';
 import './App.css';
 import { getTokenFromUrl } from './Logic/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -7,6 +7,7 @@ import { createRoutesFromElements, createBrowserRouter, RouterProvider, Route } 
 import { routes } from './Utils/Utils';
 import HomeLayout from './Layout/HomeLayout/HomeLayout';
 import NotFound from './Pages/NotFound/NotFound';
+import Login from './Components/Login/Login';
 
 const spotify = new SpotifyWebApi();
 
@@ -64,17 +65,15 @@ function App() {
   return ( 
     <Suspense fallback={<div>Loading...</div>}>
     <RouterProvider router={pagesRoutes} />
-   {/* <div className="App">
-      
+    {/* <div className="App"> 
       {
         token ? (
-          <Player spotify={spotify}/>
+          <HomeLayout spotify={spotify}/>
         ) : (
           <Login />
         )
       }
-    </div>
-    */}
+    </div> */}
     </Suspense>
   );
 }
