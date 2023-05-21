@@ -5,3 +5,9 @@
 .outletStyle {
     flex: 1;
 }
+
+.pageStyle {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
