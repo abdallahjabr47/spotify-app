@@ -16,8 +16,8 @@ export const FooterWrap = styled.div`
   display: flex;
   background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   max-width: 1100px;
   min-height: 400px;
   margin: 0 auto;
@@ -51,6 +51,12 @@ export const FooterLinksItems = styled.div`
   box-sizing: border-box;
   color: #fff;
   width: 160px;
+
+  @media screen and (max-width: 420px) {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+  }
 `;
 
 export const FooterLinksTitle = styled.h1`

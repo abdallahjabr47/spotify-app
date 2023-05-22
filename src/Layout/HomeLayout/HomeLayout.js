@@ -5,9 +5,9 @@ import Footer from '../../Components/Footer/Footer'
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import './HomeLayout.css';
 import AboutUs from "../../Components/AboutUs";
-import ResponsiveAppBar from "../../Components/Navbar/index";
+import ResponsiveAppBar from "../../Components/Navbar/Navbar";
 
-function HomeLayout() {
+function HomeLayout({ spotify }) {
   const [activeTab, setActiveTab] = useState(routeNames.HOME);
 
   return (
@@ -17,7 +17,7 @@ function HomeLayout() {
 
       <div className="pageStyle">
         <div className="outletStyle">
-          <ResponsiveAppBar />
+          <ResponsiveAppBar spotify={spotify} />
           <Outlet context={setActiveTab} />
         </div>
 
