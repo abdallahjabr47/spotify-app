@@ -6,9 +6,7 @@ import HomeLayout from './Layout/HomeLayout/HomeLayout';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Components/Login/Login';
 
-
 function App() {
-
 
   //console.log("Me", user);
   //console.log("token", token);
