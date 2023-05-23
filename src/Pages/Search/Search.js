@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { routeNames } from "../../Utils/Utils";
 import '../Body.css';
+import SearchCard from "../../Components/SearchCard/SearchCard";
+//import Card from "../../Components/Card/Card";
 
 export default function Search({ spotify }) {
   const setActiveTab = useOutletContext();
@@ -12,7 +14,7 @@ export default function Search({ spotify }) {
 
   return (
     <div className='body'>
-        Search
+        <SearchCard />
     </div>
   )
 }
