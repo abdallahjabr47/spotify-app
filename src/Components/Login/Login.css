@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.login a {
+.login .link {
     color: white;
     background-color: #1db954;
     text-decoration: none;

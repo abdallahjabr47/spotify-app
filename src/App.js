@@ -6,6 +6,7 @@ import {useDataLayerValue} from './Logic/DataLayer';
 import { createRoutesFromElements, createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import { routes } from './Utils/Utils';
 import HomeLayout from './Layout/HomeLayout/HomeLayout';
+import NotFound from './Pages/NotFound/NotFound';
 
 const spotify = new SpotifyWebApi();
 
@@ -53,7 +54,7 @@ function App() {
   const pagesRoutes = createBrowserRouter(
     createRoutesFromElements(
       routes.map((route, idx) => {
-        return <Route element={<HomeLayout />} key={idx} errorElement={<div>Not Found</div>} >
+        return <Route element={<HomeLayout />} key={idx} errorElement={<NotFound />} >
             <Route path={route.path} element={route.component} />
         </Route>
       })
