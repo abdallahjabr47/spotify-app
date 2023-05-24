@@ -1,7 +1,20 @@
 .homeStyle {
     display: flex;
+
+    @media screen and (max-width: 820px) {
+        display: flex;
+        flex-direction: column;
+      }
 }
+
+
 
 .outletStyle {
     flex: 1;
+}
+
+.pageStyle {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
 }

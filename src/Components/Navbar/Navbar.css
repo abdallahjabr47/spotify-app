@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(rgb(99, 96, 116), rgb(91, 87, 115));
+}
+
+.header_left {
+    flex: 0.5;
+    background-color: #fff;
+    color: gray;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    min-width: 70px;
+}
+
+.header_left input {
+    border: none;
+    width: 100%;
+}
+
+.header_right {
+    display: flex;
+    align-items: center;
+}
+
+.header_right h4 {
+    margin-left: 10px;
+}

@@ -1,3 +1,5 @@
+import SpotifyWebApi from 'spotify-web-api-js';
+
 export const authorizeEndPoint = "https://accounts.spotify.com/authorize";
 
 const redirectUri = "http://localhost:3000/";
@@ -13,10 +15,13 @@ const scopes = [
     "user-modify-playback-state",
   ];
 
+export const spotify = new SpotifyWebApi();
+
+
 // to get the token (there is an empty object)
 // example: #accessToken=secretkey&name=abdallah
-export const getTokenFromUrl = () => {
-    return window.location.hash
+export const getTokenFromUrl = ( hash ) => {
+    return hash
     .substring(1)
     .split('&')
     .reduce((initial, item) => {

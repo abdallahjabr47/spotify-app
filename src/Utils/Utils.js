@@ -4,12 +4,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import PersonIcon from '@mui/icons-material/Person';
-import InfoIcon from '@mui/icons-material/Info';
 
 const Search = lazy(() => import("../Pages/Search/Search"));
 const YourLibrary = lazy(() => import("../Pages/YourLibrary/YourLibrary"));
 const AboutMe = lazy(() => import("../Pages/AboutMe/AboutMe"));
-const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"));
 
 export const routeNames = {
   HOME: "Home",
@@ -43,11 +41,5 @@ export const routes = [
     title: routeNames.ABOUT_ME,
     component: <AboutMe />,
     icon: <PersonIcon className="sidebarOptionIcon"  />
-  },
-  {
-    path: "/AboutUs",
-    title: routeNames.ABOUT_US,
-    component: <AboutUs />,
-    icon: <InfoIcon className="sidebarOptionIcon"  />
   },
 ];

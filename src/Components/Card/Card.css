@@ -1,0 +1,35 @@
+.cardContainer {
+    width: 15rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.5rem;
+    height: fit-content;
+    background-color: #121212;
+    transition: 0.3s ease-in;
+}
+
+.cardContainer:hover {
+    background-color: #212121;
+    cursor: pointer;
+}
+
+.cardImg {
+    width: 86%;
+    margin-top: 14px;
+    border-radius: 1rem;
+}
+
+.cardTitle {
+    width: 86%;
+    margin: 10px 5% 0 5%;
+    display: flex;
+    justify-self: start;
+}
+
+.cardDescription {
+    width: 86%;
+    margin: 10px 5%;
+}
