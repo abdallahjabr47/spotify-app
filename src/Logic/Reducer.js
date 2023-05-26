@@ -7,13 +7,12 @@ export const initialState = {
     item: null,
     // it useful to make the devloper logged in (authenticated and authorized), and should be removed after finishing 
    // token: "BQApxj3thGWrjpJCrAjD3hbRoi54K8iYGDazJHC6Br3QJvdq_Ek8CGCDyQudr57xROQ0TZ7NUPRci0l7TylXxOrDr0JzE-hfh3sBA7zuXvI5A3aCEcR30rfDJZFBFC0Umc9-CPBZunnzzsX6bJihmJvgqhIHy6VsEW78B4bSKXZK0F4_NDH9EKtoFyQSD6ZAVU49FPwqy3rL2C4lQw",
-   // token: null,
+    token: null,
 }
 
 // state: how initialState looks like
 // action: how I manipulate the data looks like (example: setUser, setPlaylist)
 const reducer = (state, action) => {
-    console.log(action); 
 
     switch(action.type) {
         case "SET_USER":

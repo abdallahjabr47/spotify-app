@@ -13,11 +13,16 @@ function App() {
 
   const pagesRoutes = createBrowserRouter(
     createRoutesFromElements(
-      routes.map((route, idx) => {
-        return <Route element={<HomeLayout />} key={idx} errorElement={<NotFound />} >
-            <Route path={route.path} element={route.component} />
-        </Route>
-      })
+      <>
+      <Route path={'/login'} element={<Login />} />
+      {
+        routes.map((route, idx) => {
+          return <Route element={<HomeLayout />} key={idx} errorElement={<NotFound />} >
+              <Route path={route.path} element={route.component} />
+          </Route>
+        })
+      }
+      </>
     )
   )
 
@@ -29,7 +34,7 @@ function App() {
         token ? (
           <HomeLayout spotify={spotify}/>
         ) : (
-          <Login />
+          
         )
       }
     </div> */}
