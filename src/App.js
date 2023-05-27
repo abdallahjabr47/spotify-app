@@ -4,7 +4,7 @@ import { createRoutesFromElements, createBrowserRouter, RouterProvider, Route } 
 import { routes } from './Utils/Utils';
 import HomeLayout from './Layout/HomeLayout/HomeLayout';
 import NotFound from './Pages/NotFound/NotFound';
-import Login from './Components/Login/Login';
+import Login from './Pages/Login/Login';
 
 function App() {
 
@@ -13,11 +13,16 @@ function App() {
 
   const pagesRoutes = createBrowserRouter(
     createRoutesFromElements(
-      routes.map((route, idx) => {
-        return <Route element={<HomeLayout />} key={idx} errorElement={<NotFound />} >
-            <Route path={route.path} element={route.component} />
-        </Route>
-      })
+      <>
+      <Route path={'/login'} element={<Login />} />
+      {
+        routes.map((route, idx) => {
+          return <Route element={<HomeLayout />} key={idx} errorElement={<NotFound />} >
+              <Route path={route.path} element={route.component} />
+          </Route>
+        })
+      }
+      </>
     )
   )
 

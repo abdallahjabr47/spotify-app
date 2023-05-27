@@ -13,7 +13,6 @@ export const initialState = {
 // state: how initialState looks like
 // action: how I manipulate the data looks like (example: setUser, setPlaylist)
 const reducer = (state, action) => {
-    console.log(action); 
 
     switch(action.type) {
         case "SET_USER":
@@ -34,11 +33,11 @@ const reducer = (state, action) => {
                 playlists: action.playlists,
             };
 
-        // case "SET_DISCOVER_WEEKLY":
-        //     return {
-        //         ...state,
-        //         discover_weekly: action.discover_weekly,
-        //     };
+        case "SET_DISCOVER_WEEKLY":
+            return {
+                ...state,
+                discover_weekly: action.discover_weekly,
+            };
 
         default:
             return state;

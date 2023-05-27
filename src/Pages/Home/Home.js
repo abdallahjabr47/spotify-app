@@ -9,12 +9,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import SongRow from "../../Components/SongRow/SongRow";
 
-export default function Home({ spotify }) {
+export default function Home() {
   const setActiveTab = useOutletContext();
-  const [{ discover_weekly }, dispatch] = useDataLayerValue();
+  const [{ discover_weekly }] = useDataLayerValue();
 
   useEffect(() => {
     setActiveTab(routeNames.HOME);
+
   }, []);
 
   return (
