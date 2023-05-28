@@ -5,6 +5,7 @@ import { routes } from './Utils/Utils';
 import HomeLayout from './Layout/HomeLayout/HomeLayout';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login';
+import Profile from './Pages/Profile/Profile';
 
 function App() {
 
@@ -15,13 +16,14 @@ function App() {
     createRoutesFromElements(
       <>
       <Route path={'/login'} element={<Login />} />
+      <Route element={<HomeLayout />} errorElement={<NotFound />} >
+      <Route path={'/profile'} element={<Profile />} />
       {
         routes.map((route, idx) => {
-          return <Route element={<HomeLayout />} key={idx} errorElement={<NotFound />} >
-              <Route path={route.path} element={route.component} />
-          </Route>
-        })
+          return <Route path={route.path} key={idx} element={route.component} />
+            })
       }
+            </Route>
       </>
     )
   )
@@ -29,15 +31,6 @@ function App() {
   return ( 
     <Suspense fallback={<div>Loading...</div>}>
     <RouterProvider router={pagesRoutes} />
-    {/* <div className="App"> 
-      {
-        token ? (
-          <HomeLayout spotify={spotify}/>
-        ) : (
-          <Login />
-        )
-      }
-    </div> */}
     </Suspense>
   );
 }

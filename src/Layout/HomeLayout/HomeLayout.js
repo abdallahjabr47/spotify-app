@@ -8,6 +8,7 @@ import AboutUs from "../../Components/AboutUs";
 import ResponsiveAppBar from "../../Components/Navbar/Navbar";
 import { useDataLayerValue } from "../../Logic/DataLayer";
 
+
 function HomeLayout() {
   const [activeTab, setActiveTab] = useState(routeNames.HOME);
   const [, dispatch] = useDataLayerValue();
@@ -18,7 +19,7 @@ function HomeLayout() {
     if(token)
     dispatch({
       type: "SET_TOKEN",
-      token: token
+      token
     });
   }, [])
 

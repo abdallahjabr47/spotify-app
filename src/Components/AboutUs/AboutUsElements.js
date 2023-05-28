@@ -97,8 +97,8 @@ export const SocialIconLink = styled.a`
   }
 `;
 
-export const styleComponent = styled.div`
-  display: flex;
+export const StyleComponent = styled.div`
+  display: inline;
 `;
 
 export const BreakLine = styled.div`

@@ -3,11 +3,11 @@ import { useOutletContext } from "react-router-dom";
 import { routeNames } from "../../Utils/Utils";
 import '../Body.css';
 
-export default function YourLibrary({ spotify }) {
+export default function YourLibrary() {
   const setActiveTab = useOutletContext();
 
   useEffect(() => {
-    setActiveTab(routeNames.YourLibrary);
+    setActiveTab(routeNames.YOUR_LIBRARY);
   }, []);
 
   return (

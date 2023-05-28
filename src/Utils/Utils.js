@@ -15,7 +15,7 @@ export const routeNames = {
   SEARCH: "Search",
   YOUR_LIBRARY: "Your Library",
   ABOUT_ME: "About Me",
-  ABOUT_US: "About US",
+  PROFILE: "Profile",
 };
 
 export const routes = [
@@ -42,5 +42,5 @@ export const routes = [
     title: routeNames.ABOUT_ME,
     component: <IsAuth><AboutMe /></IsAuth>,
     icon: <PersonIcon className="sidebarOptionIcon"  />
-  }
+  },
 ];

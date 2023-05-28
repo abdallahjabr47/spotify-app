@@ -1,5 +1,7 @@
+import { AppBar, Avatar, Box } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 export const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -17,6 +19,26 @@ export const Search = styled('div')(({ theme }) => ({
     },
   }));
 
+  export const BoxStyle = styled(Box)({
+    flexGrow: 1
+  });
+
+  // export const AppBarStyle = styled(AppBar)({
+  //   position: 'static',
+  //   backgroundColor: 'rgb(91, 87, 115)',
+  // });
+
+  export const AvatarStyle = styled(Avatar)({
+    width: 32, 
+    height: 32,
+  });
+
+  export const LinkStyle = styled(Link)({
+    color: 'inherit', 
+    textDecoration: 'none', 
+    display: 'flex', 
+    alignItems: 'center',
+  });
 
 export const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
