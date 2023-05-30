@@ -6,17 +6,22 @@ const redirectUri = "http://localhost:3000/";
 
 const clientId  = "38d3a637679f44a897ef7b026c912fb2";
 
-// to access the spotify clone project, because I cannor do anything on original app (Permissions)
+// to access the spotify clone project, because I cannot do anything on original app (Permissions)
 const scopes = [
     "user-read-currently-playing",
     "user-read-recently-played",
     "user-read-playback-state",
     "user-top-read",
     "user-modify-playback-state",
+    "playlist-read-private",
+    "playlist-read-collaborative",
+    "playlist-modify-private",
+    "playlist-modify-public",
+    "user-follow-read",
+    "user-follow-modify",
   ];
 
 export const spotify = new SpotifyWebApi();
-
 
 // to get the token (there is an empty object)
 // example: #accessToken=secretkey&name=abdallah

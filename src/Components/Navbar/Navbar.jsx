@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavbarStyle.js';
 import { useDataLayerValue } from '../../Logic/DataLayer.js';
-import { BoxStyle, LinkStyle, Search, SearchIconWrapper, StyledInputBase} from './NavbarStyle.js';
+import { BoxStyle, LinkStyle, Search, SearchIconWrapper, StyledInputBase } from './NavbarStyle.js';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,13 +16,14 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppBar } from '@mui/material';
+import ChevronLeft from '@mui/icons-material/ChevronLeft';
+import ChevronRight from '@mui/icons-material/ChevronRight';
 
-function Navbar() {
-  const [{ user }, dispatch] = useDataLayerValue();
+function Navbar({ pageNumber, handlePrevious, handleNext }) {
   const navigate = useNavigate();
-
+  const [{ user }, dispatch] = useDataLayerValue();
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const [searchQuery, setSearchQuery] = React.useState('');
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -37,17 +38,21 @@ function Navbar() {
     localStorage.removeItem('token');
     dispatch({
       type: 'SET_TOKEN',
-      token: ''
+      token: '',
     });
     handleClose();
     navigate('/login');
-  }
+  };
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   setSearchQuery('');
+  // };
 
   return (
-
     <BoxStyle>
-      <AppBar position="static" sx={{backgroundColor: 'rgb(91, 87, 115)'}}>
-        <Toolbar >
+      <AppBar position="static" sx={{ background: 'linear-gradient(rgb(33, 33, 33), rgb(33, 33, 33))', boxShadow: "none" }}>
+        <Toolbar>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -55,11 +60,29 @@ function Navbar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
+            <IconButton size="small">
+              <SearchIcon />
+            </IconButton>
           </Search>
 
           <BoxStyle />
+
           <Box>
+            <Tooltip title="Previous">
+              <IconButton size="small" sx={{ mr: 2 }} onClick={handlePrevious}>
+                <ChevronLeft style={{color: "white"}}/>
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Next">
+              <IconButton size="small" onClick={handleNext}>
+                <ChevronRight style={{color: "white"}}/>
+              </IconButton>
+            </Tooltip>
+
             <Tooltip title="Account settings">
               <IconButton
                 onClick={handleClick}
@@ -116,32 +139,26 @@ function Navbar() {
             </MenuItem>
 
             <Divider />
-              <MenuItem onClick={handleClose}>
-                <LinkStyle to={'/'}>
-                  <ListItemIcon>
-                    <Settings fontSize="small" />
-                  </ListItemIcon>
-                  Settings
-                </LinkStyle>
-
-              </MenuItem>
-
-              <MenuItem onClick={handleLogout}>
+            <MenuItem onClick={handleClose}>
+              <LinkStyle to={'/'}>
                 <ListItemIcon>
-                  <Logout fontSize="small" />
+                  <Settings fontSize="small" />
                 </ListItemIcon>
-                Logout
-              </MenuItem>
-            </Menu>
+                Settings
+              </LinkStyle>
+            </MenuItem>
 
+            <MenuItem onClick={handleLogout}>
+              <ListItemIcon>
+                <Logout fontSize="small" />
+              </ListItemIcon>
+              Logout
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
     </BoxStyle>
   );
 }
 
-      {/* <div className='header_right'>
-        <Avatar src={user?.images[0]?.url} alt={user?.display_name}/>
-        <h4>{user?.display_name}</h4>
-      </div> */}
 export default Navbar;

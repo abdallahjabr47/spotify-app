@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   return (
-    <RootContainer sx={{ backgroundColor: darkMode ? 'rgb(0, 0, 0, 1)' : 'rgba(91, 87, 115)' }}>
+    <RootContainer sx={{ backgroundColor: darkMode ? 'rgb(0, 0, 0, 1)' : 'rgb(33, 33, 33)' }}>
       <ProfileAvatar alt="Profile Image" src={myImage} />
       <NameTypography variant="h4" component="h2">
         {editing ? (
@@ -48,7 +48,7 @@ const Profile = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+            style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
           />
         ) : (
           name
@@ -58,7 +58,7 @@ const Profile = () => {
       <TableContainer>
       <TableContainerWrapper>
         <Table>
-          <TableHead style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+          <TableHead style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
  >
             <TableRow>
               <TableCellStyle>Field</TableCellStyle>
@@ -76,7 +76,7 @@ const Profile = () => {
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
                     placeholder="Age"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
                   />
                 ) : (
                   age
@@ -93,7 +93,7 @@ const Profile = () => {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="Company"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
                   />
                 ) : (
                   location
@@ -110,7 +110,7 @@ const Profile = () => {
                     value={favouriteTeam}
                     onChange={(e) => setFavouriteTeam(e.target.value)}
                     placeholder="Favourite team"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
                   />
                 ) : (
                   favouriteTeam
@@ -126,7 +126,7 @@ const Profile = () => {
                     type="text"
                     value={university}
                     placeholder="University"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
                   />
                 ) : (
                   university
@@ -142,7 +142,7 @@ const Profile = () => {
                     type="text"
                     value={major}
                     placeholder="Major"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)' }}
                   />
                 ) : (
                   major
@@ -159,7 +159,7 @@ const Profile = () => {
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="Company"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)', color: darkMode ? '#fff' : '#fff' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)', color: darkMode ? '#fff' : '#fff' }}
                   />
                 ) : (
                   company
@@ -176,7 +176,7 @@ const Profile = () => {
                     value={occupation}
                     onChange={(e) => setOccupation(e.target.value)}
                     placeholder="Occupation"
-                    style={{ backgroundColor: darkMode ? 'rgba(91, 87, 115)' : 'rgb(0, 0, 0, 1)', color: darkMode ? '#fff' : '#fff' }}
+                    style={{ backgroundColor: darkMode ? 'rgb(33, 33, 33)' : 'rgb(0, 0, 0, 1)', color: darkMode ? '#fff' : '#fff' }}
                   />
                 ) : (
                   occupation

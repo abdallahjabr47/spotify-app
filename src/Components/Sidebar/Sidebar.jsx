@@ -1,9 +1,12 @@
 import React from 'react'
 import './Sidebar.css';
 import { routes } from '../../Utils/Utils';
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { useDataLayerValue } from '../../Logic/DataLayer';
 import SidebarOption from '../SidebarOption/SidebarOption';
+import Playlists from '../Playlists/Playlists';
+import Title from "../Sidebar/Title/Title";
+
 
 const Sidebar = ({ activeTab }) => {
   const [{ playlists }, dispatch] = useDataLayerValue();
@@ -24,13 +27,11 @@ const Sidebar = ({ activeTab }) => {
           )
       }
 
-        {/* <Box className='sidebarTitle'>
+        <Box className='sidebarTitle'>
             <Title Title="PLAYLISTS" />
         </Box>
 
-      {playlists?.items?.map(playlists => (
-          <SidebarOption option={playlists.name} />
-      ))} */}
+      <Playlists />
       
     </Container>
   );

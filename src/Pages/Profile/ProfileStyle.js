@@ -11,7 +11,6 @@ export const RootContainer = styled('div')({
     alignItems: 'center',
     paddingTop: 47,
     paddingBottom: 47,
-    backgroundColor: '#1f1f1f',
     color: '#fff',
   });
   

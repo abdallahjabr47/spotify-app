@@ -1,12 +1,14 @@
 .cardContainer {
-    width: 15rem;
+    width: 14rem;
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin: 0.5rem;
+    padding: 10px 0;
     height: fit-content;
+    box-sizing: border-box;
     background-color: #121212;
     transition: 0.3s ease-in;
 }
@@ -17,9 +19,9 @@
 }
 
 .cardImg {
-    width: 86%;
+    width: 75%;
     margin-top: 14px;
-    border-radius: 1rem;
+    border-radius: 100px;
 }
 
 .cardTitle {
@@ -32,4 +34,5 @@
 .cardDescription {
     width: 86%;
     margin: 10px 5%;
+    font-size: 12px;
 }

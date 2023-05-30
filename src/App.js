@@ -8,16 +8,13 @@ import Login from './Pages/Login/Login';
 import Profile from './Pages/Profile/Profile';
 
 function App() {
-
-  //console.log("Me", user);
-  //console.log("token", token);
-
   const pagesRoutes = createBrowserRouter(
     createRoutesFromElements(
       <>
       <Route path={'/login'} element={<Login />} />
       <Route element={<HomeLayout />} errorElement={<NotFound />} >
       <Route path={'/profile'} element={<Profile />} />
+
       {
         routes.map((route, idx) => {
           return <Route path={route.path} key={idx} element={route.component} />
@@ -30,7 +27,7 @@ function App() {
 
   return ( 
     <Suspense fallback={<div>Loading...</div>}>
-    <RouterProvider router={pagesRoutes} />
+    <RouterProvider router={pagesRoutes} /> 
     </Suspense>
   );
 }

@@ -35,8 +35,9 @@ hr {
 }
 
 .sidebarOption.active {
-    background: linear-gradient(rgb(91, 87, 115), rgb(51, 49, 63));
+    background: rgb(33, 33, 33);
     color: #fff;
+    border-radius: 7px;
   }
 
 

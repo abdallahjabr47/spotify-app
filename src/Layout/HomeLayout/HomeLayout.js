@@ -7,20 +7,23 @@ import './HomeLayout.css';
 import AboutUs from "../../Components/AboutUs";
 import ResponsiveAppBar from "../../Components/Navbar/Navbar";
 import { useDataLayerValue } from "../../Logic/DataLayer";
-
+import { spotify } from "../../Logic/spotify";
 
 function HomeLayout() {
   const [activeTab, setActiveTab] = useState(routeNames.HOME);
   const [, dispatch] = useDataLayerValue();
 
+
   useEffect(() => {
 
     let token = localStorage.getItem('token');
-    if(token)
-    dispatch({
-      type: "SET_TOKEN",
-      token
-    });
+    if(token){
+      dispatch({
+        type: "SET_TOKEN",
+        token
+      });
+      spotify.setAccessToken(token);
+    }
   }, [])
 
   return (
@@ -31,7 +34,7 @@ function HomeLayout() {
       <div className="pageStyle">
         <div className="outletStyle">
           <ResponsiveAppBar />
-          <Outlet context={setActiveTab} />
+            <Outlet context={setActiveTab} />
         </div>
 
         <AboutUs />

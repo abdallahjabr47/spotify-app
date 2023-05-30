@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
   min-width: 100%;
   min-height: 600px;
 
@@ -14,7 +13,7 @@ export const FooterContainer = styled.footer`
 export const FooterWrap = styled.div`
   padding: 48px 24px;
   display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  background: linear-gradient(rgb(19, 18, 18), rgba(0,0,0,1));
   flex-direction: column;
   justify-content: center;
   align-items: center;
