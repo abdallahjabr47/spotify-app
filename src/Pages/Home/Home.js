@@ -6,7 +6,7 @@ import '../Body.css';
 import './HomeStyle.js';
 import { useDataLayerValue } from '../../Logic/DataLayer';
 import { reducerCases } from "../../Logic/Constants";
-import { Container , StyledSpan } from "./HomeStyle.js";
+import { Container } from "./HomeStyle.js";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 export default function Home() {
@@ -128,6 +128,7 @@ export default function Home() {
               <p className="description">{selectedPlaylist.description}</p>
             </div>
           </div>
+
           <div className="list">
             <div className="header-row">
               <div className="col">
@@ -185,7 +186,7 @@ export default function Home() {
                         <div className="info">
                           <span className="name">{name}</span>
                           
-                          <StyledSpan>{artists}</StyledSpan>
+                          <span className="nameArtists">{artists}</span>
                         </div>
                       </div>
                       <div className="col">

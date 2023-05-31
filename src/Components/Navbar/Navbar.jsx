@@ -3,10 +3,18 @@ import './NavbarStyle.js';
 import { useDataLayerValue } from '../../Logic/DataLayer.js';
 import { reducerCases } from "../../Logic/Constants";
 import { spotify } from "../../Logic/spotify";
-import { BoxStyle, LinkStyle, Search, SearchIconWrapper, StyledInputBase } from './NavbarStyle.js';
+import {
+  BoxStyle,
+  LinkStyle,
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+  StyledAppBar,
+  ToolbarWrapper,
+  IconButtonWrapper,
+  MenuWrapper
+} from './NavbarStyle.js';
 import SearchIcon from '@mui/icons-material/Search';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
@@ -17,10 +25,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
-import { AppBar } from '@mui/material';
-import ChevronLeft from '@mui/icons-material/ChevronLeft';
-import ChevronRight from '@mui/icons-material/ChevronRight';
-import { useHistory } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -66,8 +71,8 @@ function Navbar() {
 
   return (
     <BoxStyle>
-      <AppBar position="static" sx={{ background: 'linear-gradient(rgb(33, 33, 33), rgb(33, 33, 33))', boxShadow: "none" }}>
-        <Toolbar>
+      <StyledAppBar position="static">
+        <ToolbarWrapper>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -77,16 +82,15 @@ function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
               value={searchQuery}
               onChange={(e) => {
-                setSearchQuery(e.target.value)
-                if (e.target.value)
-                handleSearch()
+                setSearchQuery(e.target.value);
+                if (e.target.value) handleSearch();
               }}
             />
           </Search>
 
           <BoxStyle />
 
-          <Box>
+          <IconButtonWrapper>
             <Tooltip title="Previous">
               <IconButton size="small" sx={{ mr: 2 }} onClick={goBack}>
                 <ChevronLeft style={{ color: "white" }} />
@@ -108,11 +112,13 @@ function Navbar() {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
               >
-                <Avatar sx={{ width: 32, height: 32 }}>A</Avatar>
+                <Avatar>A</Avatar>
               </IconButton>
             </Tooltip>
-          </Box>
+          </IconButtonWrapper>
+        </ToolbarWrapper>
 
+        <MenuWrapper>
           <Menu
             anchorEl={anchorEl}
             id="account-menu"
@@ -125,24 +131,6 @@ function Navbar() {
                 overflow: 'visible',
                 filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                 mt: 1.5,
-                '& .MuiAvatar-root': {
-                  width: 32,
-                  height: 32,
-                  ml: -0.5,
-                  mr: 1,
-                },
-                '&:before': {
-                  content: '""',
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  right: 14,
-                  width: 10,
-                  height: 10,
-                  bgcolor: 'background.paper',
-                  transform: 'translateY(-50%) rotate(45deg)',
-                  zIndex: 0,
-                },
               },
             }}
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
@@ -171,8 +159,8 @@ function Navbar() {
               Logout
             </MenuItem>
           </Menu>
-        </Toolbar>
-      </AppBar>
+        </MenuWrapper>
+      </StyledAppBar>
     </BoxStyle>
   );
 }

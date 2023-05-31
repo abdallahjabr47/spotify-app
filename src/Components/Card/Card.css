@@ -1,5 +1,5 @@
 .cardContainer {
-    width: 14rem;
+    width: 14.5rem;
     border-radius: 1rem;
     display: flex;
     align-items: center;
@@ -11,6 +11,11 @@
     box-sizing: border-box;
     background-color: #121212;
     transition: 0.3s ease-in;
+    
+    @media screen and (max-width: 820px) {
+        width: 10rem;
+        margin: 1rem;
+    }
 }
 
 .cardContainer:hover {
