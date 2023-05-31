@@ -4,12 +4,12 @@ import { routeNames } from "../../Utils/Utils";
 import "../Body.css";
 import Card from "../../Components/Card/Card";
 import Box from "@mui/material/Box";
-import MuiTabs from "@mui/material/Tabs";
 import { useDataLayerValue } from "../../Logic/DataLayer";
 import { Tabs, Tab } from "@mui/material";
 import TabPanel from "../../Components/TabPanel/TabPanel";
 
 export default function Search() {
+  
   const setActiveTab = useOutletContext();
   const [value, setValue] = React.useState(0);
   const [{ searchResults }] = useDataLayerValue();
@@ -31,7 +31,6 @@ export default function Search() {
           aria-label="nav tabs example"
           value={value}
           onChange={handleChange}
-          textColor="white"
           TabIndicatorProps={{
             sx: { backgroundColor: "rgba(0, 0, 0, 1)" },
           }}
@@ -42,9 +41,10 @@ export default function Search() {
           <Tab label="Playlists" value={3}  aria-controls={`full-width-tabpanel-3`} />
         </Tabs>
         <TabPanel value={value} index={0}>
-          {/* {searchResults.tracks.items.map((result) => (
-          <Card key={result.id} title={result.name} artist={result.artists[0].name} imageUrl={result.images[0].url} />
-        ))} */}
+        {searchResults.tracks.items.map((result) => (
+          // <Card key={result.id} title={result.name} artist={result.artists[0].name} imageUrl={result.images[0].url} />
+          {result}
+        ))}
           </TabPanel>
         <TabPanel value={value} index={1}>
         <span>Artists tab</span>
@@ -56,7 +56,6 @@ export default function Search() {
         <span>Playlists tab</span>
         </TabPanel>
       </Box>
-
     </div>
   );
 }

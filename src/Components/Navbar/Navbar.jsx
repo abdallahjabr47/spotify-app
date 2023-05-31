@@ -82,9 +82,6 @@ function Navbar() {
                 handleSearch()
               }}
             />
-            <IconButton size="small">
-              <SearchIcon />
-            </IconButton>
           </Search>
 
           <BoxStyle />
