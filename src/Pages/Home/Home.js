@@ -60,6 +60,54 @@ export default function Home() {
     }
   }, [token, dispatch, selectedPlaylistId]);
 
+  const playTrack = async (
+    id,
+    name,
+    artists,
+    image,
+    context_uri,
+    track_number
+  ) => {
+    const response = await axios.put(
+      `https://api.spotify.com/v1/me/player/play`,
+      {
+        context_uri,
+        offset: {
+          position: track_number - 1,
+        },
+        position_ms: 0,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    ).catch((resp) => {
+      let error = resp.response.data.error;
+      console.log(error)
+      if (error.status === 403 && error.reason){
+        if (error.reason === "PREMIUM_REQUIRED")
+          window.alert('PREMIUM_REQUIRED');
+      }
+    });
+    if (response) {
+      if (response.status === 204){
+        const currentPlaying = {
+          id,
+          name,
+          artists,
+          image,
+        };
+        dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+      }else {
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+      }
+      
+    } 
+  };
+
   const msToMinutesAndSeconds = (ms) => {
     var minutes = Math.floor(ms / 60000);
     var seconds = ((ms % 60000) / 1000).toFixed(0);
@@ -116,16 +164,16 @@ export default function Home() {
                     <div
                       className="row"
                       key={id}
-                      // onClick={() =>
-                      //   playTrack(
-                      //     id,
-                      //     name,
-                      //     artists,
-                      //     image,
-                      //     context_uri,
-                      //     track_number
-                      //   )
-                      // }
+                      onClick={() =>
+                        playTrack(
+                          id,
+                          name,
+                          artists,
+                          image,
+                          context_uri,
+                          track_number
+                        )
+                      }
                     >
                       <div className="col">
                         <span>{index + 1}</span>

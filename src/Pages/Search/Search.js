@@ -13,6 +13,8 @@ export default function Search() {
   const setActiveTab = useOutletContext();
   const [value, setValue] = React.useState(0);
   const [{ searchResults }] = useDataLayerValue();
+
+  console.log(searchResults)
   
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -40,7 +42,9 @@ export default function Search() {
           <Tab label="Playlists" value={3}  aria-controls={`full-width-tabpanel-3`} />
         </Tabs>
         <TabPanel value={value} index={0}>
-          <span>Songs tab</span>
+          {/* {searchResults.tracks.items.map((result) => (
+          <Card key={result.id} title={result.name} artist={result.artists[0].name} imageUrl={result.images[0].url} />
+        ))} */}
           </TabPanel>
         <TabPanel value={value} index={1}>
         <span>Artists tab</span>
@@ -53,11 +57,6 @@ export default function Search() {
         </TabPanel>
       </Box>
 
-      <div>
-        {searchResults.map((result) => (
-          <Card key={result.id} title={result.name} artist={result.artists[0].name} imageUrl={result.images[0].url} />
-        ))}
-      </div>
     </div>
   );
 }

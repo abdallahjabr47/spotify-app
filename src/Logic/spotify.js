@@ -8,6 +8,8 @@ const clientId  = "38d3a637679f44a897ef7b026c912fb2";
 
 // to access the spotify clone project, because I cannot do anything on original app (Permissions)
 const scopes = [
+    "user-read-private",
+    "user-read-email",
     "user-read-currently-playing",
     "user-read-recently-played",
     "user-read-playback-state",

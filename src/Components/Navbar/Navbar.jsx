@@ -20,10 +20,11 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar } from '@mui/material';
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
+import { useHistory } from 'react-router-dom';
 
-function Navbar({ handlePrevious, handleNext }) {
+function Navbar() {
   const navigate = useNavigate();
-  const [dispatch] = useDataLayerValue();
+  const [, dispatch] = useDataLayerValue();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState('');
   const open = Boolean(anchorEl);
@@ -36,6 +37,14 @@ function Navbar({ handlePrevious, handleNext }) {
     setAnchorEl(null);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  const goForward = () => {
+    navigate(1);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     dispatch({
@@ -46,9 +55,9 @@ function Navbar({ handlePrevious, handleNext }) {
     navigate('/login');
   };
 
-  const handleSearch = async (query) => {
+  const handleSearch = async () => {
     try {
-      const results = await spotify.search(query, ["song", "playlist", "album", "artist"], { limit: 10 });
+      const results = await spotify.search(encodeURI(searchQuery), ["track", "playlist", "album", "artist"], { limit: 10 });
       dispatch({ type: reducerCases.SET_SEARCH_RESULTS, searchResults: results });
     } catch (error) {
       console.error("Error searching:", error);
@@ -67,7 +76,11 @@ function Navbar({ handlePrevious, handleNext }) {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value)
+                if (e.target.value)
+                handleSearch()
+              }}
             />
             <IconButton size="small">
               <SearchIcon />
@@ -78,13 +91,13 @@ function Navbar({ handlePrevious, handleNext }) {
 
           <Box>
             <Tooltip title="Previous">
-              <IconButton size="small" sx={{ mr: 2 }}>
+              <IconButton size="small" sx={{ mr: 2 }} onClick={goBack}>
                 <ChevronLeft style={{ color: "white" }} />
               </IconButton>
             </Tooltip>
 
             <Tooltip title="Next">
-              <IconButton size="small">
+              <IconButton size="small" onClick={goForward}>
                 <ChevronRight style={{ color: "white" }} />
               </IconButton>
             </Tooltip>
