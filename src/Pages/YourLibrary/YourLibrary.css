@@ -1,0 +1,22 @@
+.yourLibraryBody {
+    color: white;
+    min-height: 50vh;
+    padding: 20px;
+    overflow-y: overlay;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.yourLibraryBody::-webkit-scrollbar {
+    display: none;
+}
+
+.yourLibraryTitle {
+    margin: 20px 10px;
+}
+
+.yourLibraryData {
+    display: flex;
+    flex-wrap: wrap;
+}

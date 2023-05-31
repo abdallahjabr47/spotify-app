@@ -1,13 +1,12 @@
 .homeStyle {
     display: flex;
+    background: linear-gradient(rgb(33, 33, 33), rgb(19, 18, 18));
 
     @media screen and (max-width: 820px) {
         display: flex;
         flex-direction: column;
       }
 }
-
-
 
 .outletStyle {
     flex: 1;

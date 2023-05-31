@@ -1,0 +1,22 @@
+.browseCategoriesBody {
+    color: white;
+    min-height: 50vh;
+    padding: 20px;
+    overflow-y: overlay;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.browseCategoriesBody::-webkit-scrollbar {
+    display: none;
+}
+
+.browseCategoriesTitle {
+    margin: 20px 10px;
+}
+
+.browseCategoriesData {
+    display: flex;
+    flex-wrap: wrap;
+}

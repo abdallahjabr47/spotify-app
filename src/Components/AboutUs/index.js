@@ -1,5 +1,5 @@
 import React from 'react'
-import { BreakLine, FooterContainer, FooterLink, FooterLinksContainer, FooterLinksItems, FooterLinksTitle, FooterLinksWrapper, FooterSecondLinksItems, FooterWrap, SocialIconLink, SocialIcons, SocialMediaWrap, WebsiteLegals, WebsiteRights } from './AboutUsElements'
+import { BreakLine, FooterContainer, FooterLink, FooterLinksContainer, FooterLinksItems, FooterLinksTitle, FooterLinksWrapper, FooterSecondLinksItems, FooterWrap, SocialIconLink, SocialMediaWrap, WebsiteLegals, WebsiteRights, StyleComponent } from './AboutUsElements'
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -9,7 +9,7 @@ const AboutUs = () => {
     <FooterContainer>
         <FooterWrap>
             <FooterLinksContainer>
-                <styleComponent>
+                <StyleComponent>
                     <FooterLinksWrapper>
                         <FooterLinksItems>
                             <FooterLinksTitle>Company</FooterLinksTitle>
@@ -69,7 +69,7 @@ const AboutUs = () => {
                         © 2023 Spotfiy AB
                         </WebsiteRights>
                     </WebsiteLegals>
-                </styleComponent>
+                </StyleComponent>
             </FooterLinksContainer>
         </FooterWrap>
     </FooterContainer>

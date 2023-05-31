@@ -1,14 +1,14 @@
-import React from 'react'
-import './Card.css'
+import React from 'react';
+import './Card.css';
 
-const Card = () => {
+const Card = ({ name, imageUrl }) => {
   return (
     <div className='cardContainer'>
-        <img className='cardImg' src="https://picsum.photos/150/150" alt="" />
-        <h4 className='cardTitle'>Card Title</h4>
-        <p className='cardDescription'>This is the card description.</p>
+      <img className='cardImg' src={imageUrl} alt="" />
+      <h4 className='cardTitle'>{name}</h4>
+      <p className='cardDescription'>Artist</p>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

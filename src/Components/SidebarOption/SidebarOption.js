@@ -3,9 +3,12 @@ import './SidebarOption.css';
 import { Link } from 'react-router-dom';
 
 
-function SidebarOption({ Icon, option, path}) {
+function SidebarOption({ Icon, option, path, activeTab }) {
+
+  const isActive = option === activeTab;
+
   return (
-    <div className='sidebarOption'>
+    <div className={`sidebarOption ${isActive ? 'active' : ''}`}>
       <Link to={path}>
           {Icon}
           <span>{option}</span>
