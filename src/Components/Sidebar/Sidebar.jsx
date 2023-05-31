@@ -4,10 +4,12 @@ import { routes } from '../../Utils/Utils';
 import { Box, Container } from '@mui/material';
 import { useDataLayerValue } from '../../Logic/DataLayer';
 import SidebarOption from '../SidebarOption/SidebarOption';
-import Title from "./Title/Title";
+import Playlists from '../Playlists/Playlists';
+import Title from "../Sidebar/Title/Title";
 
-const Sidebar = () => {
-  const [{ playlists }, dispatch] = useDataLayerValue()
+
+const Sidebar = ({ activeTab }) => {
+  const [{ playlists }, dispatch] = useDataLayerValue();
 
   return (
     <Container className='sidebar'>
@@ -20,6 +22,7 @@ const Sidebar = () => {
           Icon={route.icon} 
           option={route.title} 
           path={route.path} 
+          activeTab={activeTab} 
           /> 
           )
       }
@@ -28,9 +31,7 @@ const Sidebar = () => {
             <Title Title="PLAYLISTS" />
         </Box>
 
-      {playlists?.items?.map(playlists => (
-          <SidebarOption option={playlists.name} />
-      ))}
+      <Playlists />
       
     </Container>
   );

@@ -2,19 +2,18 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
   min-width: 100%;
   min-height: 600px;
 
   @media screen and (max-width: 820px) {
-    min-height: 1200px;
+    min-height: 142vh;
   }
 `;
 
 export const FooterWrap = styled.div`
   padding: 48px 24px;
   display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  background: linear-gradient(rgb(19, 18, 18), rgba(0,0,0,1));
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -36,9 +35,9 @@ export const FooterLinksContainer = styled.div`
 export const FooterLinksWrapper = styled.div`
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 820px) {
-    flex-direction: column;
   }
 `;
 
@@ -46,7 +45,7 @@ export const FooterLinksItems = styled.div`
   display: flex;
   flex-direction: column;
   align-itmes: flex-start;
-  margin: 10px 5px;
+  margin: 30px 25px;
   text-align: left;
   box-sizing: border-box;
   color: #fff;
@@ -97,8 +96,8 @@ export const SocialIconLink = styled.a`
   }
 `;
 
-export const styleComponent = styled.div`
-  display: flex;
+export const StyleComponent = styled.div`
+  display: inline;
 `;
 
 export const BreakLine = styled.div`
@@ -120,7 +119,6 @@ export const FooterSecondLinksItems = styled.div`
   margin: 10px 5px;
 
   @media screen and (max-width: 820px) {
-    flex-direction: column;
   }
 `;
 
@@ -136,11 +134,11 @@ export const WebsiteLegals = styled.div`
 
 export const WebsiteRights = styled.div`
   display: flex;
-  text-align: left;
   color: #fff;
   font-size: 14px;
   box-sizing: border-box;
   align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 820px) {
     margin: 20px 0;
