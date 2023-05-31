@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
   min-height: 600px;
 
   @media screen and (max-width: 820px) {
-    min-height: 1200px;
+    min-height: 142vh;
   }
 `;
 
@@ -35,9 +35,9 @@ export const FooterLinksContainer = styled.div`
 export const FooterLinksWrapper = styled.div`
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 820px) {
-    flex-direction: column;
   }
 `;
 
@@ -45,7 +45,7 @@ export const FooterLinksItems = styled.div`
   display: flex;
   flex-direction: column;
   align-itmes: flex-start;
-  margin: 10px 5px;
+  margin: 30px 25px;
   text-align: left;
   box-sizing: border-box;
   color: #fff;
@@ -119,7 +119,6 @@ export const FooterSecondLinksItems = styled.div`
   margin: 10px 5px;
 
   @media screen and (max-width: 820px) {
-    flex-direction: column;
   }
 `;
 
@@ -135,11 +134,11 @@ export const WebsiteLegals = styled.div`
 
 export const WebsiteRights = styled.div`
   display: flex;
-  text-align: left;
   color: #fff;
   font-size: 14px;
   box-sizing: border-box;
   align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 820px) {
     margin: 20px 0;

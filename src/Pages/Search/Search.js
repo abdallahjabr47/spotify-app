@@ -5,23 +5,14 @@ import "../Body.css";
 import Card from "../../Components/Card/Card";
 import Box from "@mui/material/Box";
 import MuiTabs from "@mui/material/Tabs";
-import { spotify } from "../../Logic/spotify";
 import { useDataLayerValue } from "../../Logic/DataLayer";
-import { reducerCases } from "../../Logic/Constants";
 import { Tabs, Tab } from "@mui/material";
 import TabPanel from "../../Components/TabPanel/TabPanel";
 
 export default function Search() {
   const setActiveTab = useOutletContext();
   const [value, setValue] = React.useState(0);
-  const [{ searchResults }, dispatch] = useDataLayerValue();
-
-  const tabs = [
-    { label: 'Songs', to: '/Search/songs' },
-    { label: 'Artists', to: '/Search/artists' },
-    { label: 'Albums', to: '/Search/albums' },
-    { label: 'Playlists', to: '/Search/playlists' },
-  ];
+  const [{ searchResults }] = useDataLayerValue();
   
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -30,15 +21,6 @@ export default function Search() {
   useEffect(() => {
     setActiveTab(routeNames.SEARCH);
   }, []);
-
-  const handleSearch = async (query) => {
-    try {
-      const results = await spotify.search(query, ["song", "playlist", "album", "artist"], { limit: 10 });
-      dispatch({ type: reducerCases.SET_SEARCH_RESULTS, searchResults: results });
-    } catch (error) {
-      console.error("Error searching:", error);
-    }
-  };
 
   return (
     <div className="body">
@@ -71,7 +53,7 @@ export default function Search() {
         </TabPanel>
       </Box>
 
-      <div className="searchResults">
+      <div>
         {searchResults.map((result) => (
           <Card key={result.id} title={result.name} artist={result.artists[0].name} imageUrl={result.images[0].url} />
         ))}

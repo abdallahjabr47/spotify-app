@@ -10,6 +10,7 @@ export const initialState = {
     selectedPlaylist: null,
     selectedPlaylistId: "1pCbdpOhHbyoMFRplb7BHz",
     followedArtists: [],
+    browseCategories: [],
     searchResults: [],
     // it useful to make the devloper logged in (authenticated and authorized), and should be removed after finishing 
     // token: "BQApxj3thGWrjpJCrAjD3hbRoi54K8iYGDazJHC6Br3QJvdq_Ek8CGCDyQudr57xROQ0TZ7NUPRci0l7TylXxOrDr0JzE-hfh3sBA7zuXvI5A3aCEcR30rfDJZFBFC0Umc9-CPBZunnzzsX6bJihmJvgqhIHy6VsEW78B4bSKXZK0F4_NDH9EKtoFyQSD6ZAVU49FPwqy3rL2C4lQw",
@@ -58,6 +59,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 followedArtists: action.followedArtists,
+            };
+        case reducerCases.SET_BROWSE_CATEGORIES:
+            return {
+                ...state,
+                browseCategories: action.browseCategories,
             };
         case reducerCases.SET_SEARCH_RESULTS: // Add this case
             return {

@@ -1,6 +1,8 @@
 import React from 'react';
 import './NavbarStyle.js';
 import { useDataLayerValue } from '../../Logic/DataLayer.js';
+import { reducerCases } from "../../Logic/Constants";
+import { spotify } from "../../Logic/spotify";
 import { BoxStyle, LinkStyle, Search, SearchIconWrapper, StyledInputBase } from './NavbarStyle.js';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
@@ -14,14 +16,14 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AppBar } from '@mui/material';
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
 
-function Navbar({ pageNumber, handlePrevious, handleNext }) {
+function Navbar({ handlePrevious, handleNext }) {
   const navigate = useNavigate();
-  const [{ user }, dispatch] = useDataLayerValue();
+  const [dispatch] = useDataLayerValue();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState('');
   const open = Boolean(anchorEl);
@@ -44,10 +46,14 @@ function Navbar({ pageNumber, handlePrevious, handleNext }) {
     navigate('/login');
   };
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   setSearchQuery('');
-  // };
+  const handleSearch = async (query) => {
+    try {
+      const results = await spotify.search(query, ["song", "playlist", "album", "artist"], { limit: 10 });
+      dispatch({ type: reducerCases.SET_SEARCH_RESULTS, searchResults: results });
+    } catch (error) {
+      console.error("Error searching:", error);
+    }
+  };
 
   return (
     <BoxStyle>
@@ -72,14 +78,14 @@ function Navbar({ pageNumber, handlePrevious, handleNext }) {
 
           <Box>
             <Tooltip title="Previous">
-              <IconButton size="small" sx={{ mr: 2 }} onClick={handlePrevious}>
-                <ChevronLeft style={{color: "white"}}/>
+              <IconButton size="small" sx={{ mr: 2 }}>
+                <ChevronLeft style={{ color: "white" }} />
               </IconButton>
             </Tooltip>
 
             <Tooltip title="Next">
-              <IconButton size="small" onClick={handleNext}>
-                <ChevronRight style={{color: "white"}}/>
+              <IconButton size="small">
+                <ChevronRight style={{ color: "white" }} />
               </IconButton>
             </Tooltip>
 
