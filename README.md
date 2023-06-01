@@ -53,14 +53,18 @@ Welcome to my super project! Which is a simple responsive stylish website that f
   $ npm start
 ```
 
-<!-- ## Screenshots
+## Screenshots
 
-![App Screenshot](./src/assets/app-screenshots/1.png)
-![App Screenshot](./src/assets/app-screenshots/2.png)
-![App Screenshot](./src/assets/app-screenshots/3.png)
-![App Screenshot](./src/assets/app-screenshots/4.png)
-![App Screenshot](./src/assets/app-screenshots/5.png)
-![App Screenshot](./src/assets/app-screenshots/6.png) -->
+![App Screenshot](./src/Assets/Screenshots/1.PNG)
+![App Screenshot](./src/Assets/Screenshots/2.PNG)
+![App Screenshot](./src/Assets/Screenshots/3.PNG)
+![App Screenshot](./src/Assets/Screenshots/5.PNG)
+![App Screenshot](./src/Assets/Screenshots/6.PNG)
+![App Screenshot](./src/Assets/Screenshots/8.PNG)
+![App Screenshot](./src/Assets/Screenshots/9.PNG)
+![App Screenshot](./src/Assets/Screenshots/10.PNG)
+![App Screenshot](./src/Assets/Screenshots/11.PNG)
+![App Screenshot](./src/Assets/Screenshots/12.PNG)
 
 ## Appendix
 
