@@ -12,7 +12,8 @@ import {
   StyledAppBar,
   ToolbarWrapper,
   IconButtonWrapper,
-  MenuWrapper
+  MenuWrapper,
+  AvatarStyle
 } from './NavbarStyle.js';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuItem from '@mui/material/MenuItem';
@@ -138,7 +139,7 @@ function Navbar() {
           >
             <MenuItem onClick={handleClose}>
               <LinkStyle to={'/profile'}>
-                <Avatar /> Profile
+                <AvatarStyle sx={{marginRight: 1}}/> Profile
               </LinkStyle>
             </MenuItem>
 
