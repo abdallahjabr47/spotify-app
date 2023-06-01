@@ -4,9 +4,9 @@ Welcome to my super project! Which is a simple responsive stylish website that f
 
 ## Installation
 
-Install my project with git
 
 ```git
+// Install my project with git
   $ git clone https://github.com/abdallahjabr47/spotify-app.git
 ```
 
