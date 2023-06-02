@@ -35,7 +35,7 @@ export default function Search() {
           value={value}
           onChange={handleChange}
           TabIndicatorProps={{
-            sx: { backgroundColor: "rgba(0, 0, 0, 1)" },
+            sx: { backgroundColor: "rgba(0, 0, 0, 1)"},
           }}
         >
           <Tab label="Tracks" value={0} aria-controls={`full-width-tabpanel-0`} />
