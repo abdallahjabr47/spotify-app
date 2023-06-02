@@ -1,0 +1,44 @@
+.cardContainerAlbums {
+    width: 14.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 10px 0;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: #121212;
+    transition: 0.3s ease-in;
+    
+    @media screen and (max-width: 820px) {
+        width: 10rem;
+        margin: 1rem;
+        height: 250px;
+    }
+}
+
+.cardContainerAlbums:hover {
+    background-color: #212121;
+    cursor: pointer;
+}
+
+.cardImgAlbums {
+    width: 75%;
+    margin-top: 14px;
+    border-radius: 100px;
+}
+
+.cardTitleAlbums {
+    width: 86%;
+    margin: 10px 5% 0 5%;
+    display: flex;
+    justify-self: start;
+}
+
+.cardArtistsAlbums {
+    width: 86%;
+    margin: 10px 5%;
+    font-size: 12px;
+}

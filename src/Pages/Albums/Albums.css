@@ -1,0 +1,22 @@
+.albumsBody {
+    color: white;
+    min-height: 50vh;
+    padding: 20px;
+    overflow-y: overlay;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.albumsBody::-webkit-scrollbar {
+    display: none;
+}
+
+.albumsTitle {
+    margin: 20px 10px;
+}
+
+.albumsData {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -4,6 +4,8 @@ import { reducerCases } from '../../Logic/Constants';
 import { routeNames } from '../../Utils/Utils';
 import { spotify } from "../../Logic/spotify";
 import { useOutletContext } from 'react-router-dom';
+import AlbumsCard from "../../Components/AlbumsCard/AlbumsCard";
+import "./Albums.css";
 
 export default function Albums() {
   const [{ token, albums }, dispatch] = useDataLayerValue();
@@ -38,21 +40,45 @@ export default function Albums() {
   }, [token, dispatch]);
 
   return (
-    <div>
-      <h2>My Albums</h2>
+    <div className="albumsBody">
+      <div className="albumsTitle">
+        <h2>My Saved Albums</h2>
+      </div>
+  
       {albums && albums.length > 0 ? (
-        <ul>
+        <div className="albumsData">
           {albums.map(album => (
-            <li key={album.id}>
-              <img src={album.imageUrl} alt={album.name} />
-              <p>{album.name}</p>
-              <p>{album.artists}</p>
-            </li>
+            <AlbumsCard
+              key={album.id}
+              name={album.name}
+              artists={album.artists}
+              imageUrl={album.imageUrl}
+            />
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No albums found.</p>
       )}
     </div>
   );
+  
 }
+
+{/* 
+<div className="yourLibraryBody">
+<div className="yourLibraryTitle">
+  <h2>Followed Artists</h2>
+</div>
+
+<div className="yourLibraryData">
+{followedArtists.map((artist) => (
+  <Card
+    key={artist.id}
+    name={artist.name}
+    genres={artist.genres}
+    imageUrl={artist.imageUrl}
+  />
+))}
+</div>
+</div> 
+*/}
