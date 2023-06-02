@@ -30,7 +30,6 @@ export default function Home() {
         if (error.response.status === 401){
           localStorage.removeItem('token');
           navigate('/login')
-          
         }
       });
 

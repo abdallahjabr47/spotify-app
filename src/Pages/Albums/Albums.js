@@ -61,24 +61,4 @@ export default function Albums() {
       )}
     </div>
   );
-  
 }
-
-{/* 
-<div className="yourLibraryBody">
-<div className="yourLibraryTitle">
-  <h2>Followed Artists</h2>
-</div>
-
-<div className="yourLibraryData">
-{followedArtists.map((artist) => (
-  <Card
-    key={artist.id}
-    name={artist.name}
-    genres={artist.genres}
-    imageUrl={artist.imageUrl}
-  />
-))}
-</div>
-</div> 
-*/}
