@@ -41,10 +41,12 @@ export default function Search() {
           <Tab label="Playlists" value={3}  aria-controls={`full-width-tabpanel-3`} />
         </Tabs>
         <TabPanel value={value} index={0}>
-        {/* {searchResults.tracks.items.map((result) => (
-          // <Card key={result.id} title={result.name} artist={result.artists[0].name} imageUrl={result.images[0].url} />
-          {result}
-        ))} */}
+          {/* {
+            searchResults?.tracks?.items ?
+            searchResults.tracks.items.map((track) => <Card key={track.id} title={track.name} imageUrl={track.album?.images[0]?.url || ''} />)
+          :
+          <></>
+          } */}
           </TabPanel>
         <TabPanel value={value} index={1}>
         <span>Artists tab</span>

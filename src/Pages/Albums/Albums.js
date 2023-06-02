@@ -15,12 +15,12 @@ export default function Albums() {
     const getSavedAlbums = async () => {
       try {
         const response = await spotify.getMySavedAlbums();
-        const savedAlbums = response.savedAlbums.items.map((savedAlbum) => {
+        const savedAlbums = response.items.map(({album}) => {
           return {
-            id: savedAlbum.id,
-            imageUrl: savedAlbum.images.length > 0 ? savedAlbum.images[0].url : null,
-            name: savedAlbum.name,
-            artists: savedAlbum.artists.map(artist => artist.name).join(', '),
+            id: album.id,
+            imageUrl: album.images?.length && Array.isArray(album.images) > 0 ? album.images[0].url : null,
+            name: album.name,
+            artists: album.artists?.map(artist => artist.name).join(', '),
           };
         });
         dispatch({
