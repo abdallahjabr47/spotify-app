@@ -8,7 +8,7 @@ function Footer() {
   return (
     <div className='footer'>
       <div className='footer_left'>
-        <CurrentTrack />
+        {/* <CurrentTrack /> */}
       </div>
 
       <div className='footer_center'>

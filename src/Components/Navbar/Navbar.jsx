@@ -62,21 +62,23 @@ function Navbar() {
   };
 
   const handleSearch = async () => {
-    try {
-      const results = await spotify.search(
-        encodeURI(searchQuery),
-        ["track", "playlist", "album", "artist"],
-        { limit: 10 }
-      );
-      dispatch({
-        type: reducerCases.SET_SEARCH_RESULTS,
-        searchResults: results,
-      });
-    } catch (error) {
-      console.error("Error searching:", error);
-    } 
+    if (searchQuery.trim() !== "") {
+      try {
+        const results = await spotify.search(
+          encodeURI(searchQuery),
+          ["track", "playlist", "album", "artist"],
+          { limit: 10 }
+        );
+        dispatch({
+          type: reducerCases.SET_SEARCH_RESULTS,
+          searchResults: results,
+        });
+      } catch (error) {
+        console.error("Error searching:", error);
+      }
+    }
   };
-
+  
   const handleSearchInputClick = () => {
     navigate("/search"); 
   };
