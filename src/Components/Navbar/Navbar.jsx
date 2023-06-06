@@ -74,7 +74,7 @@ function Navbar() {
       });
     } catch (error) {
       console.error("Error searching:", error);
-    }
+    } 
   };
 
   const handleSearchInputClick = () => {
@@ -96,7 +96,8 @@ function Navbar() {
               onClick={handleSearchInputClick}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
-                if (e.target.value) handleSearch();
+                if (e.target.value) 
+                  handleSearch();
                 else
                   dispatch({
                     type: reducerCases.SET_SEARCH_RESULTS,

@@ -8,7 +8,8 @@ import { useDataLayerValue } from "../../Logic/DataLayer";
 import { Tabs, Tab } from "@mui/material";
 import TabPanel from "../../Components/TabPanel/TabPanel";
 import TrackCard from "../../Components/SearchCards/SearchTrackCard/TrackCard";
-import PlaylistCard from "../../Components/SearchCards/SearchArtistCard/ArtistCard";
+import ArtistCard from "../../Components/SearchCards/SearchArtistCard/ArtistCard";
+import PlaylistCard from "../../Components/SearchCards/SearchPlaylistCard/PlaylistCard";
 import AlbumCard from "../../Components/SearchCards/SearchAlbumCard/AlbumCard";
 
 export default function Search() {
@@ -70,7 +71,7 @@ export default function Search() {
             <div className="searchData">
             {searchResults?.artists?.items ? (
               searchResults.artists.items.map((artist) => (
-                <PlaylistCard 
+                <ArtistCard 
                   key={artist.id} 
                   artist={artist} 
                 />
