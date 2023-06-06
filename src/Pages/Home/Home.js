@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useOutletContext, useNavigate, useLocation } from "react-router-dom";
 import { routeNames } from "../../Utils/Utils";
 import '../Body.css';
 import './HomeStyle.js';
@@ -13,9 +13,15 @@ export default function Home() {
   const setActiveTab = useOutletContext();
   const [{ token, selectedPlaylist, selectedPlaylistId }, dispatch] = useDataLayerValue();
   const navigate = useNavigate()
+  const location = useLocation();
 
   useEffect(() => {
-    setActiveTab(routeNames.HOME);
+    let page = location.state;
+    console.log(page)
+    if(page)
+    setActiveTab(page);
+    else
+    setActiveTab(routeNames.HOME)
 
     const getInitialPlaylist = async () => {
       const response = await axios.get(

@@ -33,9 +33,9 @@ export default function Playlists() {
     }
   }, [token, dispatch]);
 
-  const changeCurrentPlaylist = (selectedPlaylistId) => {
+  const changeCurrentPlaylist = (selectedPlaylistId, name) => {
     dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId });
-    navigate("/"); // Navigate to the home page ("/")
+    navigate("/", {state: {page: name}}); // Navigate to the home page ("/")
   };
   
   return (
@@ -43,7 +43,7 @@ export default function Playlists() {
       <ul className="ulStyle">
         {playlists.map(({ name, id }) => {
           return (
-            <li className="liStyle" key={id} onClick={() => changeCurrentPlaylist(id)}>
+            <li className="liStyle" key={id} onClick={() => changeCurrentPlaylist(id, name)}>
               {name}
             </li>
           );

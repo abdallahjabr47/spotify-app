@@ -9,7 +9,7 @@ function SidebarOption({ Icon, option, path, activeTab }) {
 
   return (
     <div className={`sidebarOption ${isActive ? 'active' : ''}`}>
-      <Link to={path}>
+      <Link to={path} state={{page: option}}>
           {Icon}
           <span>{option}</span>
       </Link>
