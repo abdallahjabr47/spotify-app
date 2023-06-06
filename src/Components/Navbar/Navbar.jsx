@@ -77,11 +77,15 @@ function Navbar() {
     }
   };
 
+  const handleSearchInputClick = () => {
+    navigate("/search"); 
+  };
+
   return (
     <BoxStyle>
       <StyledAppBar position="static">
         <ToolbarWrapper>
-          <Search>
+        <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -89,6 +93,7 @@ function Navbar() {
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
               value={searchQuery}
+              onClick={handleSearchInputClick}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 if (e.target.value) handleSearch();
