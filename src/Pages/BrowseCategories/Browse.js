@@ -6,6 +6,7 @@ import { routeNames } from '../../Utils/Utils';
 import { spotify } from "../../Logic/spotify";
 import BrowseCard from '../../Components/BrowseCard/BrowseCard';
 import { useOutletContext } from 'react-router-dom';
+import SEO from "../../Components/SEO/SEO";
 
 export default function YourLibrary() {
   const [{ token , browseCategories }, dispatch] = useDataLayerValue();
@@ -39,6 +40,12 @@ export default function YourLibrary() {
   }, [token, dispatch]);
 
   return (
+    <>
+    <SEO
+      titleTemplate="Browse categories page"
+      description="The website's Browse categories page that shows the the categories in Spotify app"
+    />
+
     <div className="browseCategoriesBody">
       <div className="browseCategoriesTitle">
         <h2>Browse All</h2>
@@ -54,5 +61,6 @@ export default function YourLibrary() {
           ))}
       </div>
     </div>
+    </>
   );
 }

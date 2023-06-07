@@ -6,7 +6,7 @@ import '../Body.css';
 import './AboutMe.css';
 import Typography from '@mui/material/Typography';
 import { Accordion, AccordionDetails, AccordionSummary } from './AboutMeStyle';
-
+import SEO from '../../Components/SEO/SEO';
 
 function AboutUs () {
   const [expanded, setExpanded] = React.useState('panel1');
@@ -21,6 +21,11 @@ function AboutUs () {
   }, [])
   
   return (
+    <>
+      <SEO
+        titleTemplate="About me page"
+        description="The website's About page that shows a links related to the Spotify app"
+      />
     <div className="body">
      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
@@ -88,8 +93,7 @@ function AboutUs () {
         </AccordionDetails>
       </Accordion>
     </div>
-
-
+    </>
   )
 }
 

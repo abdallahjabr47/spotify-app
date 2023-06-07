@@ -8,6 +8,7 @@ import { useDataLayerValue } from '../../Logic/DataLayer';
 import { reducerCases } from "../../Logic/Constants";
 import { Container } from "./HomeStyle.js";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import SEO from "../../Components/SEO/SEO";
 
 export default function Home() {
   const setActiveTab = useOutletContext();
@@ -120,6 +121,13 @@ export default function Home() {
   };
 
   return (
+
+    <>
+    <SEO
+      titleTemplate="Home page"
+      description="The website's home page"
+    />
+
     <Container>
       {selectedPlaylist && (
         <>
@@ -209,5 +217,6 @@ export default function Home() {
         </>
       )}
     </Container>
+    </>
   )
 }

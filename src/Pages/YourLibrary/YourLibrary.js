@@ -6,6 +6,7 @@ import { reducerCases } from "../../Logic/Constants";
 import { spotify } from "../../Logic/spotify";
 import { routeNames } from "../../Utils/Utils";
 import Card from "../../Components/Card/Card";
+import SEO from "../../Components/SEO/SEO";
 
 export default function YourLibrary() {
   const [{ token, followedArtists }, dispatch] = useDataLayerValue();
@@ -42,6 +43,13 @@ export default function YourLibrary() {
   }, [token, dispatch]);
 
   return (
+
+    <>
+    <SEO
+      titleTemplate="Your Library page"
+      description="The website's your library page that display the artists that I followed"
+    />
+
     <div className="yourLibraryBody">
       <div className="yourLibraryTitle">
         <h2>Followed Artists</h2>
@@ -58,5 +66,6 @@ export default function YourLibrary() {
       ))}
       </div>
     </div>
+    </>
   );
 }

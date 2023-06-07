@@ -11,6 +11,7 @@ import TrackCard from "../../Components/SearchCards/SearchTrackCard/TrackCard";
 import ArtistCard from "../../Components/SearchCards/SearchArtistCard/ArtistCard";
 import PlaylistCard from "../../Components/SearchCards/SearchPlaylistCard/PlaylistCard";
 import AlbumCard from "../../Components/SearchCards/SearchAlbumCard/AlbumCard";
+import SEO from "../../Components/SEO/SEO";
 
 export default function Search() {
   
@@ -29,6 +30,12 @@ export default function Search() {
   }, []);
 
   return (
+
+    <>
+    <SEO
+      titleTemplate="Search page"
+      description="The website's search page that allows you to search in the app"
+    />
     <div className="body">
       <Box sx={{ width: "100%" }}>
         <Tabs
@@ -121,5 +128,6 @@ export default function Search() {
 
       </Box>
     </div>
+    </>
   );
 }
