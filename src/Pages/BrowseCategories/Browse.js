@@ -4,7 +4,7 @@ import { useDataLayerValue } from '../../Logic/DataLayer';
 import { reducerCases } from '../../Logic/Constants';
 import { routeNames } from '../../Utils/Utils';
 import { spotify } from "../../Logic/spotify";
-import SearchCard from '../../Components/BrowseCard/BrowseCard';
+import BrowseCard from '../../Components/BrowseCard/BrowseCard';
 import { useOutletContext } from 'react-router-dom';
 
 export default function YourLibrary() {
@@ -46,7 +46,7 @@ export default function YourLibrary() {
 
       <div className="browseCategoriesData">
           {browseCategories.map((category) => (
-            <SearchCard
+            <BrowseCard
               key={category.id}
               name={category.name}
               imageUrl={category.imageUrl}

@@ -18,9 +18,17 @@
 }
 
 .liStyle {
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-    &:hover {
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 5px;
+  &:hover {
     color: white;
-    }
+  }
+}
+
+.active {
+  background: rgb(33, 33, 33);
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 7px;
 }

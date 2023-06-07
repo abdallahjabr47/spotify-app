@@ -1,0 +1,22 @@
+.searchBody {
+    color: white;
+    min-height: 50vh;
+    padding: 20px;
+    overflow-y: overlay;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.searchBody::-webkit-scrollbar {
+    display: none;
+}
+
+.searchTitle {
+    margin: 20px 10px;
+}
+
+.searchData {
+    display: flex;
+    flex-wrap: wrap;
+}

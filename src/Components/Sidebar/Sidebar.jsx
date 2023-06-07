@@ -1,12 +1,12 @@
 import React from 'react'
 import './Sidebar.css';
 import { routes } from '../../Utils/Utils';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { useDataLayerValue } from '../../Logic/DataLayer';
 import SidebarOption from '../SidebarOption/SidebarOption';
 import Playlists from '../Playlists/Playlists';
 import Title from "../Sidebar/Title/Title";
-
+import { styled } from '@mui/system';
 
 const Sidebar = ({ activeTab }) => {
   const [{ playlists }, dispatch] = useDataLayerValue();
@@ -38,3 +38,14 @@ const Sidebar = ({ activeTab }) => {
 };
 
 export default Sidebar;
+
+
+const Container = styled('div')`
+  width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-right: auto;
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+`;
