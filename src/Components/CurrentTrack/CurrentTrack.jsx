@@ -28,7 +28,6 @@ export default function CurrentTrack() {
         }
       });
 
-
       if (response) {
         if (response.data){
           const currentPlaying = {

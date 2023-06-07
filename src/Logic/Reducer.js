@@ -12,6 +12,7 @@ export const initialState = {
     followedArtists: [],
     browseCategories: [],
     searchResults: [],
+    albums: [],
     // it useful to make the devloper logged in (authenticated and authorized), and should be removed after finishing 
 <<<<<<< HEAD
    // token: "BQApxj3thGWrjpJCrAjD3hbRoi54K8iYGDazJHC6Br3QJvdq_Ek8CGCDyQudr57xROQ0TZ7NUPRci0l7TylXxOrDr0JzE-hfh3sBA7zuXvI5A3aCEcR30rfDJZFBFC0Umc9-CPBZunnzzsX6bJihmJvgqhIHy6VsEW78B4bSKXZK0F4_NDH9EKtoFyQSD6ZAVU49FPwqy3rL2C4lQw",
@@ -78,6 +79,11 @@ const reducer = (state, action) => {
             return {
               ...state,
               searchResults: action.searchResults,
+            };
+        case reducerCases.SET_ALBUMS:
+            return {
+                ...state,
+                albums: action.albums,
             };
         default:
             return state;

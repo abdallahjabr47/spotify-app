@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import axios from "axios";
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
@@ -10,6 +9,7 @@ import RepeatIcon from '@mui/icons-material/Repeat';
 import { useDataLayerValue } from "../../Logic/DataLayer";
 import { reducerCases } from "../../Logic/Constants";
 import { useNavigate } from "react-router-dom";
+import { Container } from "./PlayerStyle";
 
 export default function Player() {
   const [{ token, playerState }, dispatch] = useDataLayerValue();
@@ -114,27 +114,3 @@ export default function Player() {
     </Container>
   );
 }
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  svg {
-    color: #b3b3b3;
-    transition: 0.2s ease-in-out;
-    &:hover {
-      color: white;
-    }
-  }
-  .state {
-    svg {
-      color: white;
-    }
-  }
-  .previous,
-  .next,
-  .state {
-    font-size: 2rem;
-  }
-`;
