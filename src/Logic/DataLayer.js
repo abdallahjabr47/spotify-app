@@ -6,7 +6,7 @@ import reducer, { initialState } from '../Logic/Reducer';
 export const DataLayerContext = createContext();
 
 // The children is what is wrapped inside (APP)
-export const DataLayer = ({ children }) => (
+export const DataLayer = ({ children}) => (
     <DataLayerContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </DataLayerContext.Provider>
