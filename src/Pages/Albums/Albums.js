@@ -6,6 +6,7 @@ import { spotify } from "../../Logic/spotify";
 import { useOutletContext } from 'react-router-dom';
 import AlbumsCard from "../../Components/AlbumsCard/AlbumsCard";
 import "./Albums.css";
+import SEO from "../../Components/SEO/SEO";
 
 export default function Albums() {
   const [{ token, albums }, dispatch] = useDataLayerValue();
@@ -40,6 +41,11 @@ export default function Albums() {
   }, [token, dispatch]);
 
   return (
+    <>
+      <SEO
+        titleTemplate="Albums page"
+        description="The website's Albums page that shows the albums that I have in my account"
+      />
     <div className="albumsBody">
       <div className="albumsTitle">
         <h2>My Saved Albums</h2>
@@ -60,5 +66,6 @@ export default function Albums() {
         <p>No albums found.</p>
       )}
     </div>
+    </>
   );
 }

@@ -7,6 +7,7 @@ import TableBody from '@mui/material/TableBody';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableContainer from '@mui/material/TableContainer';
+import SEO from "../../Components/SEO/SEO";
 
 const Profile = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -40,6 +41,13 @@ const Profile = () => {
   };
 
   return (
+
+    <>
+    <SEO
+      titleTemplate="Profile page"
+      description="The website's profile page that shows a list of information about me"
+    />
+
     <RootContainer sx={{ backgroundColor: darkMode ? 'rgb(0, 0, 0, 1)' : 'rgb(33, 33, 33)' }}>
       <ProfileAvatar alt="Profile Image" src={myImage} />
       <NameTypography variant="h4" component="h2">
@@ -206,6 +214,7 @@ const Profile = () => {
       )}
       <DarkModeToggle checked={darkMode} onChange={handleToggleDarkMode} />
     </RootContainer>
+    </>
   );
 };
 
